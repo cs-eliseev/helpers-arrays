@@ -61,4 +61,32 @@ class TestArrays extends TestCase
             ]
         ];
     }
+
+    /**
+     * @param $data
+     * @param array $expected
+     *
+     * @dataProvider providerObjectToArray
+     */
+    public function testObjectToArray($data, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::objectToArray($data));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerObjectToArray(): array
+    {
+        $object = new \stdClass();
+        $object->test1 = 1;
+        $object->test2 = 2;
+
+        return [
+            [
+                $object,
+                ['test1' => 1, 'test2' => 2]
+            ]
+        ];
+    }
 }
