@@ -69,6 +69,27 @@ git clone https://github.com/cs-eliseev/helpers-arrays.git
 
 The class consists of static methods that are conveniently used in any project. See example [examples-arrays.php](https://github.com/cs-eliseev/helpers-arrays/blob/master/examples/examples-arrays.php).
 
+**GET array data by key**
+
+Example:
+```php
+Arrays::get([
+    'key1' => 'value1',
+    'key2' => 'value2',
+    'key3' => 'value3'
+], 'key1');
+// value1
+```
+
+Set default value for not exist key:
+```php
+Arrays::get([
+    'key1' => 'value1',
+    'key2' => 'value2',
+    'key3' => 'value3'
+], 'key4', 'default1');
+// default1
+```
 
 ## License
 
