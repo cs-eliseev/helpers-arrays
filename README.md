@@ -119,6 +119,22 @@ Arrays::pullKey([
 // default1
 ```
 
+**Convert OBJECT TO ARRAY**
+
+Example:
+```php
+$object = new \stdClass();
+$object->key1 = 'value1';
+$object->key2 = 'value2';
+Arrays::objectToArray($object);
+/**
+* [
+*     'key1' => 'value1',
+*     'key2' => 'value2'
+* ]
+*/
+```
+
 
 ## License
 
