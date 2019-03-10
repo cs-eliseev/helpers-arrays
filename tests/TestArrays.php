@@ -19,6 +19,21 @@ class TestArrays extends TestCase
     }
 
     /**
+     * @param array $data
+     * @param string $key
+     * @param $default
+     * @param $expected
+     *
+     * @dataProvider providerDefaultData
+     */
+    public function testPullKey(array $data, $key, $default, $expected): void
+    {
+        $this->assertEquals($expected, Arrays::pullKey($data, $key, $default));
+
+        $this->assertFalse(array_key_exists($key, $data));
+    }
+
+    /**
      * @return array
      */
     public function providerDefaultData(): array
