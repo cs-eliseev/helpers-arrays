@@ -26,4 +26,21 @@ class Arrays
 
         return $data[$key];
     }
+
+    /**
+     * Pull array key
+     *
+     * @param array $data
+     * @param $key
+     * @param null $default
+     *
+     * @return mixed|null
+     */
+    public static function pullKey(array &$data, string $key, $default = null)
+    {
+        $result = self::get($data, $key, $default);
+        unset($data[$key]);
+
+        return $result;
+    }
 }
