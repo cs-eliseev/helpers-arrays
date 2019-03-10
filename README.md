@@ -91,6 +91,35 @@ Arrays::get([
 // default1
 ```
 
+**Pull array key**
+
+Example:
+```php
+Arrays::pullKey([
+    'key1' => 'value1',
+    'key2' => 'value2',
+    'key3' => 'value3'
+], 'key1');
+// value1
+/**
+* [
+*     'key2' => 'value2',
+*     'key3' => 'value3'
+* ]
+*/
+```
+
+Set default value for not exist key:
+```php
+Arrays::pullKey([
+    'key1' => 'value1',
+    'key2' => 'value2',
+    'key3' => 'value3'
+], 'key4', 'default1');
+// default1
+```
+
+
 ## License
 
 See the [LICENSE.md](https://github.com/cs-session/helpers-arrays/blob/master/LICENSE.md) file for licensing details.
