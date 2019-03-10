@@ -16,3 +16,12 @@ var_dump(Arrays::get($array, 'key1'));
 // default1
 var_dump(Arrays::get($array, 'key4', 'default1'));
 echo PHP_EOL;
+
+// Example: pull key
+// value1
+var_dump(Arrays::pullKey($array, 'key1'));
+var_dump($array);
+// default1
+var_dump(Arrays::pullKey($array, 'key4', 'default1'));
+var_dump($array);
+echo PHP_EOL;
