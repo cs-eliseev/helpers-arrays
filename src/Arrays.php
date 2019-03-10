@@ -43,4 +43,16 @@ class Arrays
 
         return $result;
     }
+
+    /**
+     * Object to array
+     *
+     * @param $data
+     *
+     * @return array
+     */
+    public static function objectToArray($data): array
+    {
+        return json_decode(json_encode($data), true);
+    }
 }
