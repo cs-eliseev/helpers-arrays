@@ -25,3 +25,11 @@ var_dump($array);
 var_dump(Arrays::pullKey($array, 'key4', 'default1'));
 var_dump($array);
 echo PHP_EOL;
+
+// Example: object to array
+// ['key1' => 'value1', 'key2' => 'value2']
+$object = new \stdClass();
+$object->key1 = 'value1';
+$object->key2 = 'value2';
+var_dump(Arrays::objectToArray($object));
+echo PHP_EOL;
