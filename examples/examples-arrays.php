@@ -33,3 +33,15 @@ $object->key1 = 'value1';
 $object->key2 = 'value2';
 var_dump(Arrays::objectToArray($object));
 echo PHP_EOL;
+
+-// Example: to tag
+// <tag1 attr1="1" attr2="2">1</tag1><tag2>2</tag2><tag3 />
+var_dump(Arrays::toTags([
+    'tag1' => [
+        1,
+        'attr1' => 1,
+        'attr2' => 2
+    ],
+    'tag2' => 2,
+    'tag3'
+]));
