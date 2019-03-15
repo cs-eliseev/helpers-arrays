@@ -135,6 +135,22 @@ Arrays::objectToArray($object);
 */
 ```
 
+**Convert array TO html TAG**
+
+Example:
+```php
+Arrays::toTags([
+    'tag1' => [
+        1,
+        'attr1' => 1,
+        'attr2' => 2
+    ],
+    'tag2' => 2,
+    'tag3'
+])
+// <tag1 attr1="1" attr2="2">1</tag1><tag2>2</tag2><tag3 />
+```
+
 
 ## License
 
