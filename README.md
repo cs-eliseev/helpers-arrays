@@ -147,8 +147,64 @@ Arrays::toTags([
     ],
     'tag2' => 2,
     'tag3'
-])
+]);
 // <tag1 attr1="1" attr2="2">1</tag1><tag2>2</tag2><tag3 />
+```
+
+**Convert array to MAP**
+
+Data:
+```php
+$array = [
+    [
+        'keyGroup1' => 'value1',
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup1' => 'value1',
+        'keyGroup3' => 'value2'
+    ]
+];
+```
+
+Example:
+```php
+Arrays::map($array, 'keyGroup1');
+/**
+* [
+*     'value1' => [
+*           'keyGroup1' => 'value1',
+*           'keyGroup3' => 'value2'
+*     ]
+* ]
+*/
+```
+
+Change key group:
+```php
+Arrays::map($array, 'keyGroup2');
+/**
+* [
+*     'value1' => [
+*           'keyGroup2' => 'value2',
+*           'keyGroup3' => 'value3'
+*     ]
+* ]
+*/
+```
+
+Set key value:
+```php
+Arrays::map($array, 'keyGroup3', 'keyGroup1');
+/**
+* [
+*     'value3' => null,
+*     'value2' => 'value3'
+* ]
+*/
 ```
 
 
