@@ -128,4 +128,73 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param $ketGroup
+     * @param $keyValue
+     * @param array $expected
+     *
+     *  @dataProvider providerMap
+     */
+    public function testMap(array $data, $ketGroup, $keyValue, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::map($data, $ketGroup, $keyValue));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerMap(): array
+    {
+        $testArray = [
+            [
+                'keyGroup1' => 'value1',
+                'keyGroup2' => 'value2',
+                'keyGroup3' => 'value3'
+            ], [
+                'keyGroup2' => 'value2',
+                'keyGroup3' => 'value3'
+            ], [
+                'keyGroup1' => 'value1',
+                'keyGroup3' => 'value2'
+            ]
+        ];
+
+        return [
+            [
+                $testArray,
+                'keyGroup1',
+                null,
+                [
+                    'value1' => [
+                        'keyGroup1' => 'value1',
+                        'keyGroup3' => 'value2'
+                    ]
+
+                ]
+            ],
+            [
+                $testArray,
+                'keyGroup2',
+                null,
+                [
+                    'value2' => [
+                        'keyGroup2' => 'value2',
+                        'keyGroup3' => 'value3'
+                    ]
+
+                ]
+            ],
+            [
+                $testArray,
+                'keyGroup3',
+                'keyGroup1',
+                [
+                    'value2' => 'value1',
+                    'value3' => null
+                ]
+            ]
+        ];
+    }
 }
