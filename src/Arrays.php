@@ -152,4 +152,27 @@ class Arrays
 
         return $result;
     }
+    /**
+     * Index group array
+     *
+     * @param array $data
+     * @param $keyGroup
+     * @param null $keyValue
+     *
+     * @return array
+     */
+    public static function index(array $data, $keyGroup, $keyValue = null): array
+    {
+        $result = [];
+
+        foreach ($data as $item) {
+            if (array_key_exists($keyGroup, $item)) {
+                $result[$item[$keyGroup]][] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+            }
+        }
+
+        unset($item);
+
+        return $result;
+    }
 }
