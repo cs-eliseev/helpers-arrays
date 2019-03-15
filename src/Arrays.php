@@ -124,4 +124,32 @@ class Arrays
 
         return $result;
     }
+
+    /**
+     * Group array
+     *
+     * @param array $data
+     * @param $keyGroup
+     * @param null $keyValue
+     *
+     * @return array
+     */
+    public static function group(array $data, $keyGroup, $keyValue = null): array
+    {
+        $result = [];
+
+        foreach ($data as $item) {
+            if (array_key_exists($keyGroup, $item)) {
+                $key = $item[$keyGroup];
+
+                if (empty($result[$key])) $result[$key] = [];
+
+                $result[$key][] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+            }
+        }
+
+        unset($item, $key);
+
+        return $result;
+    }
 }
