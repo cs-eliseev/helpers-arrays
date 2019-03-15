@@ -100,4 +100,28 @@ class Arrays
 
         return implode(PHP_EOL, $result);
     }
+
+    /**
+     * Building Maps
+     *
+     * @param $data
+     * @param $keyGroup
+     * @param null $keyValue
+     *
+     * @return array
+     */
+    public static function map(array $data, $keyGroup, $keyValue = null): array
+    {
+        $result = [];
+
+        foreach ($data as $item) {
+            if (array_key_exists($keyGroup, $item)) {
+                $result[$item[$keyGroup]] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+            }
+        }
+
+        unset($item);
+
+        return $result;
+    }
 }
