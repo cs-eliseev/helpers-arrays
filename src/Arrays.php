@@ -55,4 +55,49 @@ class Arrays
     {
         return json_decode(json_encode($data), true);
     }
+
+    /**
+     * Array to html
+     *
+     * @param array $data
+     *
+     * @return string
+     */
+    public static function toTags(array $data): string
+    {
+        $result = [];
+
+        foreach ($data as $key => $item) {
+            if (is_int($key)) {
+                $tag = $item;
+            } else {
+                $tag = $key;
+
+                if (is_array($item)) {
+                    $options = '';
+                    $content = '';
+
+                    foreach ($item as $key2 => $item2) {
+                        if (is_int($key2) && is_array($item2)) {
+                            foreach ($item2 as $name => $value) {
+                                $options .= ' ' . $name .'="' . $value . '"';
+                            }
+                        } elseif (is_int($key2)) {
+                            $content = $item2;
+                        } else {
+                            $options .= ' ' . $key2 .'="' . $item2 . '"';
+                        }
+                    }
+
+                } else {
+                    $content = $item;
+                }
+            }
+
+            $result[] = '<' . $tag . (empty($options) ? '' : $options) . (empty($content) ? ' />' : '>' . $content . '</' . $tag . '>');
+            unset($options, $content, $tag);
+        }
+
+        return implode(PHP_EOL, $result);
+    }
 }
