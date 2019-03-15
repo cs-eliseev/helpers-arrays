@@ -45,6 +45,7 @@ var_dump(Arrays::toTags([
     'tag2' => 2,
     'tag3'
 ]));
+echo PHP_EOL;
 
 $array = [
     [
@@ -63,7 +64,17 @@ $array = [
 // Example: map
 // ['value1' => ['keyGroup1' => 'value1', 'keyGroup3' => 'value2']]
 var_dump(Arrays::map($array, 'keyGroup1'));
-// ['value1' => ['keyGroup2' => 'value2', 'keyGroup3' => 'value3']]
+// ['value2' => ['keyGroup2' => 'value2', 'keyGroup3' => 'value3']]
 var_dump(Arrays::map($array, 'keyGroup2'));
-// ['value3' => NULL, 'value2' => 'value3']
+// ['value3' => NULL, 'value2' => 'value1']
 var_dump(Arrays::map($array, 'keyGroup3', 'keyGroup1'));
+echo PHP_EOL;
+
+// Example: group
+// ['value1' => [['keyGroup1' => 'value1', 'keyGroup2' => 'value2', 'keyGroup3' => 'value3'], ['keyGroup1' => 'value1', 'keyGroup3' => 'value2']]]
+var_dump(Arrays::group($array, 'keyGroup1'));
+// ['value1' => [['keyGroup1' => 'value1', 'keyGroup2' => 'value2', 'keyGroup3' => 'value3'], ['keyGroup2' => 'value2', 'keyGroup3' => 'value3']]]
+var_dump(Arrays::group($array, 'keyGroup2'));
+// ['value3' => [['value1', NULL]], 'value2' => ['value1']]
+var_dump(Arrays::group($array, 'keyGroup3', 'keyGroup1'));
+echo PHP_EOL;
