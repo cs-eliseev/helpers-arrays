@@ -34,7 +34,7 @@ $object->key2 = 'value2';
 var_dump(Arrays::objectToArray($object));
 echo PHP_EOL;
 
--// Example: to tag
+// Example: to tag
 // <tag1 attr1="1" attr2="2">1</tag1><tag2>2</tag2><tag3 />
 var_dump(Arrays::toTags([
     'tag1' => [
@@ -45,3 +45,25 @@ var_dump(Arrays::toTags([
     'tag2' => 2,
     'tag3'
 ]));
+
+$array = [
+    [
+        'keyGroup1' => 'value1',
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup1' => 'value1',
+        'keyGroup3' => 'value2'
+    ]
+];
+
+// Example: map
+// ['value1' => ['keyGroup1' => 'value1', 'keyGroup3' => 'value2']]
+var_dump(Arrays::map($array, 'keyGroup1'));
+// ['value1' => ['keyGroup2' => 'value2', 'keyGroup3' => 'value3']]
+var_dump(Arrays::map($array, 'keyGroup2'));
+// ['value3' => NULL, 'value2' => 'value3']
+var_dump(Arrays::map($array, 'keyGroup3', 'keyGroup1'));
