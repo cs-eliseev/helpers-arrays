@@ -188,7 +188,7 @@ Change key group:
 Arrays::map($array, 'keyGroup2');
 /**
 * [
-*     'value1' => [
+*     'value2' => [
 *           'keyGroup2' => 'value2',
 *           'keyGroup3' => 'value3'
 *     ]
@@ -202,7 +202,84 @@ Arrays::map($array, 'keyGroup3', 'keyGroup1');
 /**
 * [
 *     'value3' => null,
-*     'value2' => 'value3'
+*     'value2' => 'value1'
+* ]
+*/
+```
+
+**Array GROUP**
+
+Data:
+```php
+$array = [
+    [
+        'keyGroup1' => 'value1',
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup2' => 'value2',
+        'keyGroup3' => 'value3'
+    ], [
+        'keyGroup1' => 'value1',
+        'keyGroup3' => 'value2'
+    ]
+];
+```
+
+Example:
+```php
+Arrays::group($array, 'keyGroup1');
+/**
+* [
+*     'value1' => [
+*         [
+*             'keyGroup1' => 'value1',
+*             'keyGroup2' => 'value2',
+*             'keyGroup3' => 'value3'
+*         ], [
+*             'keyGroup1' => 'value1',
+*             'keyGroup3' => 'value2'
+*         ]
+*     ]
+* ]
+*/
+```
+
+Change key group:
+```php
+Arrays::group($array, 'keyGroup2');
+/**
+* [
+*     'value1' => [
+*         [
+*             'keyGroup1' => 'value1',
+*             'keyGroup2' => 'value2',
+*             'keyGroup3' => 'value3'
+*         ], [
+*             'keyGroup2' => 'value2',
+*             'keyGroup3' => 'value3'
+*         ]
+*     ]
+* ]
+*/
+```
+
+Set key value:
+```php
+Arrays::group($array, 'keyGroup3', 'keyGroup1');
+/**
+* [
+*     'value3' => [
+*         [
+*             'value1',
+*             null
+*         ]
+*     ],
+*     'value2' => [
+*         [
+*             'value1'
+*         ]
+*     ],
 * ]
 */
 ```
