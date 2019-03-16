@@ -218,4 +218,29 @@ class Arrays
 
         return $result;
     }
+
+    /**
+     * Replace empty array data to not empty array data
+     *
+     * @param array $first
+     * @param array $second
+     *
+     * @return array
+     */
+    public static function replaceEmptyNotEmptyData(array $first, array $second): array
+    {
+        if (empty($first)) {
+            return [];
+        } elseif (empty($second)) {
+            return $first;
+        }
+
+        foreach ($first as $key => &$value) {
+            if (empty($value) && array_key_exists($key, $second)) $value = $second[$key];
+        }
+
+        unset($value, $key, $second);
+
+        return $first;
+    }
 }
