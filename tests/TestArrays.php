@@ -410,4 +410,55 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $first
+     * @param array $second
+     * @param array $expected
+     *
+     * @dataProvider providerReplaceEmptyNotEmptyData
+     */
+    public function testReplaceEmptyNotEmptyData(array $first, array $second, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::replaceEmptyNotEmptyData($first, $second));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerReplaceEmptyNotEmptyData(): array
+    {
+        return [
+            [
+                [],
+                [],
+                []
+            ],
+            [
+                [],
+                [1 => 'second1', 2 => 'second2'],
+                []
+            ],
+            [
+                [1 => 'first1', 2 => 'first2'],
+                [],
+                [1 => 'first1', 2 => 'first2']
+            ],
+            [
+                [1 => 'first1', 2 => 'first2'],
+                [1 => 'second1', 2 => 'second2'],
+                [1 => 'first1', 2 => 'first2']
+            ],
+            [
+                [1 => 'first1', 2 => 'first2'],
+                [3 => 'second3'],
+                [1 => 'first1', 2 => 'first2']
+            ],
+            [
+                [1 => 'first1', 2 => '', 3 => '0', 4 => null, 5 => 'first5', 6 => 'first6', 7 => 'first7'],
+                [1 => 'second1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => '', 6 => '0', 7 => null, 8 => 'second8'],
+                [1 => 'first1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => 'first5', 6 => 'first6', 7 => 'first7'],
+            ],
+        ];
+    }
 }
