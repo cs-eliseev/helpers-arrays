@@ -122,9 +122,16 @@ foreach ($array as $item) {
 }
 echo PHP_EOL;
 
-// Example: append not empty data
+// Example: replace empty not empty data
 // [1 => 'first1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => 'first5', 6 => 'first6', 7 => 'first7', 8 => 'second8', 9 => 'first9', 11 => 'first11']
 foreach ($array as $item) {
     var_dump(Arrays::replaceEmptyNotEmptyData($item[0], $item[1]));
+}
+echo PHP_EOL;
+
+// Example: replace not empty data
+// [1 => 'second1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => 'first5', 6 => 'first6', 7 => 'first7', 8 => 'second8', 9 => 'first9', 11 => 'first11']
+foreach ($array as $item) {
+    var_dump(Arrays::replaceNotEmptyData($item[0], $item[1]));
 }
 echo PHP_EOL;
