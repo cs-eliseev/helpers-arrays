@@ -268,4 +268,29 @@ class Arrays
 
         return $first;
     }
+
+    /**
+     * Merge not empty array data
+     *
+     * @param array $first
+     * @param array $second
+     *
+     * @return array
+     */
+    public static function mergeNotEmptyData(array $first, array $second): array
+    {
+        if (empty($first) && empty($second)) {
+            return [];
+        } elseif (empty($second)) {
+            return $first;
+        }
+
+        foreach ($second as $key => $value) {
+            if (!empty($value)) $first[$key] = $value;
+        }
+
+        unset($value, $key);
+
+        return $first;
+    }
 }
