@@ -87,3 +87,37 @@ var_dump(Arrays::index($array, 'keyGroup2'));
 // ['value3' => [['value1', NULL]], 'value2' => ['value1']]
 var_dump(Arrays::index($array, 'keyGroup3', 'keyGroup1'));
 echo PHP_EOL;
+
+$array = [
+    [
+        [],
+        []
+    ],
+    [
+        [],
+        [1 => 'second1', 2 => 'second2']
+    ],
+    [
+        [1 => 'first1', 2 => 'first2'],
+        []
+    ],
+    [
+        [1 => 'first1', 2 => 'first2'],
+        [1 => 'second1', 2 => 'second2']
+    ],
+    [
+        [1 => 'first1', 2 => 'first2'],
+        [3 => 'second3']
+    ],
+    [
+        [1 => 'first1', 2 => '', 3 => '0', 4 => null, 5 => 'first5', 6 => 'first6', 7 => 'first7', 8 => [], 9 => 'first9', 11 => 'first11'],
+        [1 => 'second1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => '', 6 => '0', 7 => null, 8 => 'second8', 9 => [], 10 => 'second10', 12 => 0]
+    ],
+];
+
+// Example: append not empty data
+// [1 => 'second1', 2 => '', 3 => '0', 4 => null, 5 => 'first5', 6 => 'first6', 7 => 'first7', 8 => [], 9 => 'first9', 11 => 'first11', 10 => 'second10']
+foreach ($array as $item) {
+    var_dump(Arrays::appendNotEmptyData($item[0], $item[1]));
+}
+echo PHP_EOL;
