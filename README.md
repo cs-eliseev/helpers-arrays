@@ -450,6 +450,50 @@ Arrays::replaceEmptyNotEmptyData([
 */
 ```
 
+**REPLACE NOT EMPTY DATA**
+
+Example:
+```php
+Arrays::replaceNotEmptyData([
+1 => 'first1',
+    2 => '',
+    3 => '0',
+    4 => null,
+    5 => 'first5',
+    6 => 'first6',
+    7 => 'first7',
+    8 => [],
+    9 => 'first9',
+    11 => 'first11'
+], [
+    1 => 'second1',
+    2 => 'second2',
+    3 => 'second3',
+    4 => 'second4',
+    5 => '',
+    6 => '0',
+    7 => null,
+    8 => 'second8',
+    9 => [],
+    10 => 'second10'
+    12 => 0
+]);
+/**
+* [
+*     1 => 'second1',
+*     2 => 'second2',
+*     3 => 'second3',
+*     4 => 'second4',
+*     5 => 'first5',
+*     6 => 'first6',
+*     7 => 'first7',
+*     8 => 'second8',
+*     9 => 'first9',
+*     11 => 'first11'
+* ]
+*/
+```
+
 
 ## License
 
