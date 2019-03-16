@@ -175,4 +175,47 @@ class Arrays
 
         return $result;
     }
+
+    /**
+     * Append not empty array data
+     *
+     * @param array $first
+     * @param array $second
+     *
+     * @return array
+     */
+    public static function appendNotEmptyData(array $first, array $second): array
+    {
+        $result = null;
+
+        switch (true) {
+            case empty($first) && empty($second):
+                $result = [];
+                break;
+
+            case empty($second):
+                $result = $first;
+                break;
+
+            case empty($first):
+
+                foreach ($second as $key => $value) {
+                    if (!empty($value)) $result[$key] = $value;
+                }
+
+                unset($value, $key, $second);
+                break;
+
+            default:
+                foreach ($second as $key => $value) {
+                    if (!empty($value) && !array_key_exists($key, $first)) $first[$key] = $value;
+                }
+
+                $result = $first;
+                unset($value, $key, $second, $first);
+                break;
+        }
+
+        return $result;
+    }
 }
