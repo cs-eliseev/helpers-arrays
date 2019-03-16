@@ -135,3 +135,10 @@ foreach ($array as $item) {
     var_dump(Arrays::replaceNotEmptyData($item[0], $item[1]));
 }
 echo PHP_EOL;
+
+// Example: merge not empty data
+// [1 => 'second1', 2 => 'second2', 3 => 'second3', 4 => 'second4', 5 => 'first5', 6 => 'first6', 7 => 'first7', 8 => 'second8', 9 => 'first9', 11 => 'first11', 10 => 'second10']
+foreach ($array as $item) {
+    var_dump(Arrays::mergeNotEmptyData($item[0], $item[1]));
+}
+echo PHP_EOL;
