@@ -362,4 +362,27 @@ class Arrays
 
         return $data;
     }
+
+    /**
+     * Trim value to array
+     *
+     * @param array $data
+     * @param bool $recursive
+     *
+     * @return array
+     */
+    public static function trim(array $data, bool $recursive = true): array
+    {
+        foreach ($data as $key => &$value) {
+            if (is_string($value)) {
+                $value = trim($value);
+            } elseif ($recursive && is_array($value)) {
+                $value = self::trim($value);
+            }
+        }
+
+        unset($value, $key);
+
+        return $data;
+    }
 }
