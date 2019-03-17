@@ -316,4 +316,27 @@ class Arrays
 
         return $data;
     }
+
+    /**
+     * Remove empty data to array
+     *
+     * @param array $data
+     * @param bool $recursive
+     *
+     * @return array
+     */
+    public static function removeEmpty(array $data, bool $recursive = false): array
+    {
+        foreach ($data as $key => &$value) {
+            if (empty($value)) {
+                unset($data[$key]);
+            } elseif ($recursive && is_array($value)) {
+                $value = self::removeEmpty($value, $recursive);
+            }
+        }
+
+        unset($value, $key);
+
+        return $data;
+    }
 }
