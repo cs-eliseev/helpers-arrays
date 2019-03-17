@@ -164,3 +164,10 @@ foreach ($array as $item) {
     var_dump(Arrays::emptyToNull($item[0], $item[1]));
 }
 echo PHP_EOL;
+
+// Example: remove empty
+// [0 => ' first 1 ', 3 => [0 => ' first 3', 'key6' => 12, 4 => 'first 4 '], 4 => true, 'key8' => 'first 2 '],
+foreach ($array as $item) {
+    var_dump(Arrays::removeEmpty($item[0], $item[1]));
+}
+echo PHP_EOL;
