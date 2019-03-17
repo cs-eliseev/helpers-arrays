@@ -339,4 +339,27 @@ class Arrays
 
         return $data;
     }
+
+    /**
+     * Remove null data to array
+     *
+     * @param array $data
+     * @param bool $recursive
+     *
+     * @return array
+     */
+    public static function removeNull(array $data, bool $recursive = false): array
+    {
+        foreach ($data as $key => &$value) {
+            if (is_null($value)) {
+                unset($data[$key]);
+            } elseif ($recursive && is_array($value)) {
+                $value = self::removeNull($value, $recursive);
+            }
+        }
+
+        unset($value, $key);
+
+        return $data;
+    }
 }
