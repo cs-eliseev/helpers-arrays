@@ -5,6 +5,75 @@ Array helpers provides extra static methods allowing you to deal with arrays mor
 
 Project repository: https://github.com/cs-eliseev/helpers-arrays
 
+```php
+$array = [
+    0 => ' first 1 ',
+    'key1' => false,
+    1 => '',
+    2 => '0',
+    'key4' => null,
+    3 => [
+        0 => ' first 3',
+        1 => false,
+        'key2' => '',
+        2 => '0',
+        'key5' => null,
+        'key6' => 12,
+        3 => [],
+        4 => 'first 4 '
+    ],
+    4 => true,
+    5 => [],
+    'key8' => 'first 2 '
+];
+
+$array = Arrays::trim(Arrays::removeNull(Arrays::removeEmpty($array), true), true);
+/**
+ * [
+ *     0 => 'first 1',
+ *     3 => [
+ *         0 => 'first 3',
+ *         1 => false,
+ *         'key2' => '',
+ *         2 => '0',
+ *         'key6' => 12,
+ *         3 => [],
+ *         4 => 'first 4'
+ *     ],
+ *     4 => true,
+ *     'key8' => 'first 2 '
+ * ]
+ */
+$array2 = Arrays::pullKey($array, 3);
+/**
+ * $array = [
+ *     0 => 'first 1',
+ *     4 => true,
+ *     'key8' => 'first 2 '
+ * ]
+ * $array2 = [
+ *     0 => 'first 3',
+ *     1 => false,
+ *     'key2' => '',
+ *     2 => '0',
+ *     'key6' => 12,
+ *     3 => [],
+ *     4 => 'first 4'
+ * ]
+ */
+$array = Arrays::mergeNotEmptyData($array, $array2);
+/**
+ * [
+ *     0 => 'first 3',
+ *     4 => 'first 4',
+ *     'key8' => 'first 2',
+ *     'key6' => 12
+ * ]
+ */
+Arrays::get($array, 0);
+// 'first 3'
+```
+
 ***
 
 
