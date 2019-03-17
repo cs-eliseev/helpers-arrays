@@ -682,6 +682,82 @@ Arrays::removeEmpty($array, true);
 */
 ```
 
+**REMOVE NULL data to array**
+
+Data:
+```php
+$array = [
+    0 => ' first 1 ', 
+    'key1' => false, 
+    1 => '', 
+    2 => '0', 
+    'key4' => null, 
+    3 => [
+        0 => ' first 3', 
+        1 => false, 
+        'key2' => '', 
+        2 => '0', 
+        'key5' => null, 
+        'key6' => 12, 
+        3 => [], 
+        4 => 'first 4 '
+    ], 
+    4 => true, 
+    5 => [], 
+    'key8' => 'first 2 '
+];
+```
+
+Example:
+```php
+Arrays::removeNull($array);
+/**
+* [
+*     0 => ' first 1 ', 
+*     'key1' => false, 
+*     1 => '', 
+*     2 => '0', 
+*     3 => [
+*         0 => ' first 3', 
+*         1 => false, 
+*         'key2' => '', 
+*         2 => '0', 
+*         'key5' => null, 
+*         'key6' => 12, 
+*         3 => [], 
+*         4 => 'first 4 '
+*     ], 
+*     4 => true, 
+*     5 => [], 
+*     'key8' => 'first 2 '
+* ]
+*/
+
+Recursive:
+```php
+Arrays::removeNull($array, true);
+/**
+* [
+*     0 => ' first 1 ', 
+*     'key1' => false, 
+*     1 => '', 
+*     2 => '0', 
+*     3 => [
+*         0 => ' first 3', 
+*         1 => false, 
+*         'key2' => '', 
+*         2 => '0', 
+*         'key6' => 12, 
+*         3 => [], 
+*         4 => 'first 4 '
+*     ], 
+*     4 => true, 
+*     5 => [], 
+*     'key8' => 'first 2 '
+* ]
+*/
+```
+
 
 ## License
 
