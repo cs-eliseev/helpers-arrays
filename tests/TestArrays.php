@@ -671,4 +671,40 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param bool $recursive
+     * @param array $expected
+     *
+     * @dataProvider providerTrim
+     */
+    public function testTrim(array $data, bool $recursive, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::trim($data, $recursive));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerTrim(): array
+    {
+        return [
+            [
+                [],
+                true,
+                []
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                false,
+                ['first 1', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2'],
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                true,
+                ['first 1', 'key1' => false, '', '0', 'key4' => null, ['first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4'], true, [], 'key8' => 'first 2'],
+            ],
+        ];
+    }
 }
