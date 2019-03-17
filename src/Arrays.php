@@ -20,7 +20,7 @@ class Arrays
      *
      * @return mixed|null
      */
-    public static function get(array $data, string $key, $default = null)
+    public static function get(array $data, $key, $default = null)
     {
         if (!array_key_exists($key, $data)) return $default;
 
@@ -36,7 +36,7 @@ class Arrays
      *
      * @return mixed|null
      */
-    public static function pullKey(array &$data, string $key, $default = null)
+    public static function pullKey(array &$data, $key, $default = null)
     {
         $result = self::get($data, $key, $default);
         unset($data[$key]);
