@@ -293,4 +293,27 @@ class Arrays
 
         return $first;
     }
+
+    /**
+     * Convert empty to null
+     *
+     * @param array $data
+     * @param bool $recursive
+     *
+     * @return array
+     */
+    public static function emptyToNull(array $data, bool $recursive = false): array
+    {
+        foreach ($data as $key => &$value) {
+            if (empty($value)) {
+                $value = null;
+            } elseif ($recursive && is_array($value)) {
+                $value = self::emptyToNull($value, $recursive);
+            }
+        }
+
+        unset($value, $key);
+
+        return $data;
+    }
 }
