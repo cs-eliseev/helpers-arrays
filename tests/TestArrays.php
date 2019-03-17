@@ -599,4 +599,40 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param bool $recursive
+     * @param array $expected
+     *
+     * @dataProvider providerRemoveEmpty
+     */
+    public function testRemoveEmpty(array $data, bool $recursive, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::removeEmpty($data, $recursive));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerRemoveEmpty(): array
+    {
+        return [
+            [
+                [],
+                true,
+                []
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                false,
+                [' first 1 ', 3 => [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], 4 => true, 'key8' => 'first 2 ']
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                true,
+                [' first 1 ', 3 => [' first 3', 'key6' => 12, 4 => 'first 4 '], 4 => true, 'key8' => 'first 2 ']
+            ],
+        ];
+    }
 }
