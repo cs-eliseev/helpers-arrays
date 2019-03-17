@@ -659,6 +659,7 @@ Arrays::emptyToNull($array);
 *     'key8' => 'first 2 '
 * ]
 */
+```
 
 Recursive:
 ```php
@@ -733,6 +734,7 @@ Arrays::removeEmpty($array);
 *     'key8' => 'first 2 '
 * ]
 */
+```
 
 Recursive:
 ```php
@@ -801,6 +803,7 @@ Arrays::removeNull($array);
 *     'key8' => 'first 2 '
 * ]
 */
+```
 
 Recursive:
 ```php
@@ -878,6 +881,7 @@ Arrays::trim($array);
 *     'key8' => 'first 2'
 * ]
 */
+```
 
 Recursive:
 ```php
