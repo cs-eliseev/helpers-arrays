@@ -159,22 +159,29 @@ $array = [
 ];
 
 // Example: empty to null
-// [0 => ' first 1 ', 'key1' => null, 1 => null, 2 => null, 'key4' => null, 3 => [0 => ' first 3', 1 => null, 'key2' => null, 2 => null, 'key5' => null, 'key6' => 12, 3 => null, 4 => 'first 4 '], 4 => true, 5 => null, 'key8' => 'first 2 '],
+// [0 => ' first 1 ', 'key1' => null, 1 => null, 2 => null, 'key4' => null, 3 => [0 => ' first 3', 1 => null, 'key2' => null, 2 => null, 'key5' => null, 'key6' => 12, 3 => null, 4 => 'first 4 '], 4 => true, 5 => null, 'key8' => 'first 2 ']
 foreach ($array as $item) {
     var_dump(Arrays::emptyToNull($item[0], $item[1]));
 }
 echo PHP_EOL;
 
 // Example: remove empty
-// [0 => ' first 1 ', 3 => [0 => ' first 3', 'key6' => 12, 4 => 'first 4 '], 4 => true, 'key8' => 'first 2 '],
+// [0 => ' first 1 ', 3 => [0 => ' first 3', 'key6' => 12, 4 => 'first 4 '], 4 => true, 'key8' => 'first 2 ']
 foreach ($array as $item) {
     var_dump(Arrays::removeEmpty($item[0], $item[1]));
 }
 echo PHP_EOL;
 
 // Example: remove null
-// [0 => ' first 1 ', 'key1' => false, 1 => '', 2 => '0', 3 => [0 => ' first 3', 1 => false, 'key2' => '', 2 => '0', 'key6' => 12, 3 => [], 4 => 'first 4 '], 4 => true, 5 => [], 'key8' => 'first 2 '],
+// [0 => ' first 1 ', 'key1' => false, 1 => '', 2 => '0', 3 => [0 => ' first 3', 1 => false, 'key2' => '', 2 => '0', 'key6' => 12, 3 => [], 4 => 'first 4 '], 4 => true, 5 => [], 'key8' => 'first 2 ']
 foreach ($array as $item) {
     var_dump(Arrays::removeNull($item[0], $item[1]));
+}
+echo PHP_EOL;
+
+// Example: trim
+// ['first 1', 'key1' => false, '', '0', 'key4' => null, ['first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4'], true, [], 'key8' => 'first 2']
+foreach ($array as $item) {
+    var_dump(Arrays::trim($item[0], $item[1]));
 }
 echo PHP_EOL;
