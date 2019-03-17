@@ -171,3 +171,10 @@ foreach ($array as $item) {
     var_dump(Arrays::removeEmpty($item[0], $item[1]));
 }
 echo PHP_EOL;
+
+// Example: remove null
+// [0 => ' first 1 ', 'key1' => false, 1 => '', 2 => '0', 3 => [0 => ' first 3', 1 => false, 'key2' => '', 2 => '0', 'key6' => 12, 3 => [], 4 => 'first 4 '], 4 => true, 5 => [], 'key8' => 'first 2 '],
+foreach ($array as $item) {
+    var_dump(Arrays::removeNull($item[0], $item[1]));
+}
+echo PHP_EOL;
