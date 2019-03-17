@@ -635,4 +635,40 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param bool $recursive
+     * @param array $expected
+     *
+     * @dataProvider providerRemoveNull
+     */
+    public function testRemoveNull(array $data, bool $recursive, array $expected): void
+    {
+        $this->assertEquals($expected, Arrays::removeNull($data, $recursive));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerRemoveNull(): array
+    {
+        return [
+            [
+                [],
+                true,
+                []
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                false,
+                [' first 1 ', 'key1' => false, '', '0', [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+            ],
+            [
+                [' first 1 ', 'key1' => false, '', '0', 'key4' => null, [' first 3', false, 'key2' => '', '0', 'key5' => null, 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+                true,
+                [' first 1 ', 'key1' => false, '', '0', [' first 3', false, 'key2' => '', '0', 'key6' => 12, [], 'first 4 '], true, [], 'key8' => 'first 2 '],
+            ],
+        ];
+    }
 }
