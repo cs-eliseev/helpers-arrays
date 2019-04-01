@@ -199,10 +199,7 @@ class Arrays
                 $result = self::removeEmpty($second);
                 break;
             default:
-                foreach ($second as $key => $value) {
-                    if (!empty($value) && !array_key_exists($key, $first)) $first[$key] = $value;
-                }
-                $result = $first;
+                $result = self::appendNotEmpty($first, $second);
                 break;
         }
 
@@ -374,5 +371,22 @@ class Arrays
         unset($value, $key);
 
         return $data;
+    }
+
+    /**
+     * Append not empty
+     *
+     * @param array $first
+     * @param array $second
+     *
+     * @return array
+     */
+    protected static function appendNotEmpty(array $first, array $second): array
+    {
+        foreach ($second as $key => $value) {
+            if (!empty($value) && !array_key_exists($key, $first)) $first[$key] = $value;
+        }
+
+        return $first;
     }
 }
