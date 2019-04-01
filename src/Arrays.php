@@ -99,7 +99,7 @@ class Arrays
                 $info['tag'] = $key;
             }
 
-            $string .= '<' . $info['tag'] . (empty($info['attr']) ? '' : $info['attr']) . (empty($info['content']) ? ' />' : '>' . $info['content'] . '</' . $info['tag'] . '>');
+            $string .= '<' . $info['tag'] . (empty($info['attr']) ? '' : $info['attr']) . (empty($info['content']) ? ' />' : '>' . $info['content'] . '</' . $info['tag'] . '>') . PHP_EOL;
         }
 
         return $string;
@@ -403,7 +403,7 @@ class Arrays
      */
     protected static function replaceTagInfo(array $info): array
     {
-        $result = [];
+        $result = ['attr' => '', 'content' => ''];
 
         foreach ($info as $key => $item) {
             if (is_int($key) && is_array($item)) {
