@@ -1,6 +1,8 @@
 ARRAYS CSE HELPERS
 =======
 
+[![Travis (.org)](https://img.shields.io/travis/cs-eliseev/helpers-arrays.svg?style=flat-square)](https://travis-ci.org/cs-eliseev/helpers-arrays)
+
 [![Packagist](https://img.shields.io/packagist/v/cse/helpers-arrays.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-arrays)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-arrays)
 [![Packagist](https://img.shields.io/packagist/l/cse/helpers-arrays.svg?style=flat-square)](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md)
