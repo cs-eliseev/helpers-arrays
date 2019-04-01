@@ -199,7 +199,10 @@ class Arrays
                 $result = self::removeEmpty($second);
                 break;
             default:
-                $result = self::mergeNotEmptyData($first, $second);
+                foreach ($second as $key => $value) {
+                    if (!empty($value) && !array_key_exists($key, $first)) $first[$key] = $value;
+                }
+                $result = $first;
                 break;
         }
 
