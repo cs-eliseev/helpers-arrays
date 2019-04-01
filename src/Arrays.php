@@ -16,7 +16,7 @@ class Arrays
      *
      * @param array $data
      * @param $key
-     * @param null $default
+     * @param $default
      *
      * @return mixed|null
      */
@@ -32,7 +32,7 @@ class Arrays
      *
      * @param array $data
      * @param $key
-     * @param null $default
+     * @param $default
      *
      * @return mixed|null
      */
@@ -106,7 +106,7 @@ class Arrays
      *
      * @param $data
      * @param $keyGroup
-     * @param null $keyValue
+     * @param $keyValue
      *
      * @return array
      */
@@ -130,7 +130,7 @@ class Arrays
      *
      * @param array $data
      * @param $keyGroup
-     * @param null $keyValue
+     * @param $keyValue
      *
      * @return array
      */
@@ -157,7 +157,7 @@ class Arrays
      *
      * @param array $data
      * @param $keyGroup
-     * @param null $keyValue
+     * @param $keyValue
      *
      * @return array
      */
