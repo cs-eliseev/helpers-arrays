@@ -108,12 +108,12 @@ You can find the most recent version of this project [here](https://github.com/c
 ### Composer
 
 Execute the following command to get the latest version of the package:
-```shell
+```bash
 composer require cse/helpers-arrays
 ```
 
 Or file composer.json should include the following contents:
-```
+```json
 {
     "require": {
         "cse/helpers-arrays": "*"
@@ -124,7 +124,7 @@ Or file composer.json should include the following contents:
 ### Git
 
 Clone this repository locally:
-```
+```bash
 git clone https://github.com/cs-eliseev/helpers-arrays.git
 ```
 
@@ -911,6 +911,32 @@ Arrays::trim($array, true);
 ```
 
 
+## Testing & Code Coverage
+
+PHPUnit is used for unit testing. Unit tests ensure that class and methods does exactly what it is meant to do.
+
+General PHPUnit documentation can be found at https://phpunit.de/documentation.html.
+
+To run the PHPUnit unit tests, execute:
+```bash
+phpunit PATH/TO/PROJECT/tests/
+```
+
+If you want code coverage reports, use the following:
+```bash
+phpunit --coverage-html ./report PATH/TO/PROJECT/tests/
+```
+
+Used PHPUnit default config:
+```bash
+phpunit --configuration PATH/TO/PROJECT/phpunit.xml
+```
+
+
 ## License
 
-See the [LICENSE.md](https://github.com/cs-session/helpers-arrays/blob/master/LICENSE.md) file for licensing details.
+The CSE HELPERS ARRAYS is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md) for more information.
+
+***
+
+> GitHub [@cs-eliseev](https://github.com/cs-eliseev)
