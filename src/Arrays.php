@@ -57,6 +57,26 @@ class Arrays
     }
 
     /**
+     * To string key and value
+     *
+     * @param array $data
+     * @param string $preFix
+     * @param string $postFix
+     *
+     * @return string
+     */
+    public static function toString(array $data, string $preFix = ':', $postFix = ';'): string
+    {
+        $string = '';
+
+        foreach ($data as $key => $option) {
+            $string .= $key . $preFix . $option . $postFix;
+        }
+
+        return $string;
+    }
+
+    /**
      * Array to html
      *
      * @param array $data
@@ -65,40 +85,24 @@ class Arrays
      */
     public static function toTags(array $data): string
     {
-        $result = [];
+        $string = '';
 
         foreach ($data as $key => $item) {
+            $info = [];
             if (is_int($key)) {
-                $tag = $item;
+                $info['tag'] = $item;
+            } elseif (is_array($item)) {
+                $info = self::replaceTagInfo($item);
+                $info['tag'] = $key;
             } else {
-                $tag = $key;
-
-                if (is_array($item)) {
-                    $options = '';
-                    $content = '';
-
-                    foreach ($item as $key2 => $item2) {
-                        if (is_int($key2) && is_array($item2)) {
-                            foreach ($item2 as $name => $value) {
-                                $options .= ' ' . $name .'="' . $value . '"';
-                            }
-                        } elseif (is_int($key2)) {
-                            $content = $item2;
-                        } else {
-                            $options .= ' ' . $key2 .'="' . $item2 . '"';
-                        }
-                    }
-
-                } else {
-                    $content = $item;
-                }
+                $info['content'] = $item;
+                $info['tag'] = $key;
             }
 
-            $result[] = '<' . $tag . (empty($options) ? '' : $options) . (empty($content) ? ' />' : '>' . $content . '</' . $tag . '>');
-            unset($options, $content, $tag);
+            $string .= '<' . $info['tag'] . (empty($info['attr']) ? '' : $info['attr']) . (empty($info['content']) ? ' />' : '>' . $info['content'] . '</' . $info['tag'] . '>');
         }
 
-        return implode(PHP_EOL, $result);
+        return $string;
     }
 
     /**
@@ -388,5 +392,29 @@ class Arrays
         }
 
         return $first;
+    }
+
+    /**
+     * Replace tag info
+     *
+     * @param array $info
+     *
+     * @return array
+     */
+    protected static function replaceTagInfo(array $info): array
+    {
+        $result = [];
+
+        foreach ($info as $key => $item) {
+            if (is_int($key) && is_array($item)) {
+                $result['attr'] .= ' ' . trim(self::toString($item, '="', '" '));
+            } elseif (is_int($key)) {
+                $result['content'] = $item;
+            } else {
+                $result['attr'] .= ' ' . $key .'="' . $item . '"';
+            }
+        }
+
+        return $result;
     }
 }
