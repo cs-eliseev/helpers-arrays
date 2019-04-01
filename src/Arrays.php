@@ -248,7 +248,7 @@ class Arrays
      */
     public static function mergeNotEmptyData(array $first = [], array $second = []): array
     {
-        if (!empty($first) && !empty($second)) {
+        if (!empty($second)) {
             foreach ($second as $key => $value) {
                 if (!empty($value)) $first[$key] = $value;
             }
