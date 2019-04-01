@@ -22,9 +22,7 @@ class Arrays
      */
     public static function get(array $data, $key, $default = null)
     {
-        if (!array_key_exists($key, $data)) return $default;
-
-        return $data[$key];
+        return array_key_exists($key, $data) ? $data[$key] : $default;
     }
 
     /**
@@ -120,11 +118,9 @@ class Arrays
 
         foreach ($data as $item) {
             if (array_key_exists($keyGroup, $item)) {
-                $result[$item[$keyGroup]] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+                $result[$item[$keyGroup]] = self::getValueCheckParam($item, $keyValue);
             }
         }
-
-        unset($item);
 
         return $result;
     }
@@ -148,11 +144,9 @@ class Arrays
 
                 if (empty($result[$key])) $result[$key] = [];
 
-                $result[$key][] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+                $result[$key][] = self::getValueCheckParam($item, $keyValue);
             }
         }
-
-        unset($item, $key);
 
         return $result;
     }
@@ -171,11 +165,9 @@ class Arrays
 
         foreach ($data as $item) {
             if (array_key_exists($keyGroup, $item)) {
-                $result[$item[$keyGroup]][] = is_null($keyValue) ? $item : (array_key_exists($keyValue, $item) ? $item[$keyValue] : null);
+                $result[$item[$keyGroup]][] = self::getValueCheckParam($item, $keyValue);
             }
         }
-
-        unset($item);
 
         return $result;
     }
@@ -218,20 +210,13 @@ class Arrays
      *
      * @return array
      */
-    public static function replaceEmptyNotEmptyData(array $first, array $second): array
+    public static function replaceEmptyNotEmptyData(array $first = [], array $second = []): array
     {
-        if (empty($first)) {
-            return [];
-        } elseif (empty($second)) {
-            return $first;
+        if (!empty($first) && !empty($second)) {
+            foreach ($first as $key => &$value) {
+                if (empty($value) && array_key_exists($key, $second)) $value = $second[$key];
+            }
         }
-
-        foreach ($first as $key => &$value) {
-            if (empty($value) && array_key_exists($key, $second)) $value = $second[$key];
-        }
-
-        unset($value, $key, $second);
-
         return $first;
     }
 
@@ -243,20 +228,13 @@ class Arrays
      *
      * @return array
      */
-    public static function replaceNotEmptyData(array $first, array $second): array
+    public static function replaceNotEmptyData(array $first = [], array $second = []): array
     {
-        if (empty($first)) {
-            return [];
-        } elseif (empty($second)) {
-            return $first;
+        if (!empty($first) && !empty($second)) {
+            foreach ($first as $key => &$value) {
+                if (!empty($second[$key])) $value = $second[$key];
+            }
         }
-
-        foreach ($first as $key => &$value) {
-            if (!empty($second[$key])) $value = $second[$key];
-        }
-
-        unset($value, $key, $second);
-
         return $first;
     }
 
@@ -268,20 +246,13 @@ class Arrays
      *
      * @return array
      */
-    public static function mergeNotEmptyData(array $first, array $second): array
+    public static function mergeNotEmptyData(array $first = [], array $second = []): array
     {
-        if (empty($first) && empty($second)) {
-            return [];
-        } elseif (empty($second)) {
-            return $first;
+        if (!empty($first) && !empty($second)) {
+            foreach ($second as $key => $value) {
+                if (!empty($value)) $first[$key] = $value;
+            }
         }
-
-        foreach ($second as $key => $value) {
-            if (!empty($value)) $first[$key] = $value;
-        }
-
-        unset($value, $key);
-
         return $first;
     }
 
@@ -302,9 +273,6 @@ class Arrays
                 $value = self::emptyToNull($value, $recursive);
             }
         }
-
-        unset($value, $key);
-
         return $data;
     }
 
@@ -325,9 +293,6 @@ class Arrays
                 $value = self::removeEmpty($value, $recursive);
             }
         }
-
-        unset($value, $key);
-
         return $data;
     }
 
@@ -348,9 +313,6 @@ class Arrays
                 $value = self::removeNull($value, $recursive);
             }
         }
-
-        unset($value, $key);
-
         return $data;
     }
 
@@ -371,9 +333,6 @@ class Arrays
                 $value = self::trim($value);
             }
         }
-
-        unset($value, $key);
-
         return $data;
     }
 
@@ -390,7 +349,6 @@ class Arrays
         foreach ($second as $key => $value) {
             if (!empty($value) && !array_key_exists($key, $first)) $first[$key] = $value;
         }
-
         return $first;
     }
 
@@ -416,5 +374,18 @@ class Arrays
         }
 
         return $result;
+    }
+
+    /**
+     * Get value check param
+     *
+     * @param array $data
+     * @param $keyValue
+     *
+     * @return mixed
+     */
+    protected static function getValueCheckParam(array $data, $keyValue)
+    {
+        return is_null($keyValue) ? $data : (array_key_exists($keyValue, $data) ? $data[$keyValue] : null);
     }
 }
