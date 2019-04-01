@@ -99,7 +99,7 @@ class Arrays
                 $info['tag'] = $key;
             }
 
-            $string .= '<' . $info['tag'] . (empty($info['attr']) ? '' : $info['attr']) . (empty($info['content']) ? ' />' : '>' . $info['content'] . '</' . $info['tag'] . '>') . PHP_EOL;
+            $string .= '<' . $info['tag'] . (empty($info['attr']) ? '' : $info['attr']) . (empty($info['content']) ? ' />' : '>' . $info['content'] . '</' . $info['tag'] . '>');
         }
 
         return $string;

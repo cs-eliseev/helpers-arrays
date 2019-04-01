@@ -109,11 +109,11 @@ class TestArrays extends TestCase
         return [
             [
                 ['test1', 'test2'],
-                '<test1 />' . PHP_EOL . '<test2 />'
+                '<test1 /><test2 />'
             ],
             [
                 ['test1' => 1, 'test2' => 2],
-                '<test1>1</test1>' . PHP_EOL . '<test2>2</test2>'
+                '<test1>1</test1><test2>2</test2>'
             ],
             [
                 [
@@ -124,7 +124,7 @@ class TestArrays extends TestCase
                     ],
                     'test2' => 2
                 ],
-                '<test1 attr1="1" attr2="2">1</test1>' . PHP_EOL . '<test2>2</test2>'
+                '<test1 attr1="1" attr2="2">1</test1><test2>2</test2>'
             ],
         ];
     }
