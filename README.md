@@ -1,6 +1,11 @@
 ARRAYS CSE HELPERS
 =======
 
+[![Packagist](https://img.shields.io/packagist/v/cse/helpers-arrays.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-arrays)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-arrays)
+[![Packagist](https://img.shields.io/packagist/l/cse/helpers-arrays.svg?style=flat-square)](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md)
+[![GitHub repo size](https://img.shields.io/github/repo-size/cs-eliseev/helpers-arrays.svg?style=flat-square)](https://github.com/cs-eliseev/helpers-arrays/archive/master.zip)
+
 Array helpers provides extra static methods allowing you to deal with arrays more efficiently.
 
 Project repository: https://github.com/cs-eliseev/helpers-arrays
