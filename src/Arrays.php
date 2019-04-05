@@ -257,7 +257,7 @@ class Arrays
     }
 
     /**
-     * Convert empty to null
+     * Replace empty to null
      *
      * @param array $data
      * @param bool $recursive
