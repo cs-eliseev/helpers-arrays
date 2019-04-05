@@ -707,4 +707,44 @@ class TestArrays extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param array $data
+     * @param string $preFix
+     * @param string $PostFix
+     * @param array $expected
+     *
+     * @dataProvider providerToString
+     */
+    public function testToString(array $data, string $preFix, string $PostFix, string $expected): void
+    {
+        $this->assertEquals($expected, Arrays::toString($data, $preFix, $PostFix));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerToString(): array
+    {
+        return [
+            [
+                [
+                    'option1' => 'value1',
+                    'option2' => 'value2',
+                ],
+                ':',
+                ';',
+                'option1:value1;option2:value2;'
+            ],
+            [
+                [
+                    'option1' => 'value1',
+                    'option2' => 'key1:value1;key1:value2;',
+                ],
+                '="',
+                '" ',
+                'option1="value1" option2="key1:value1;key1:value2;" '
+            ],
+        ];
+    }
 }
