@@ -185,3 +185,16 @@ foreach ($array as $item) {
     var_dump(Arrays::trim($item[0], $item[1]));
 }
 echo PHP_EOL;
+
+// Example: to string
+// option1:value1;option2:value2;
+var_dump(Arrays::toString([
+    'option1' => 'value1',
+    'option2' => 'value2',
+]));
+// option1="value1" option2="key1:value1;key1:value2;"
+var_dump(Arrays::toString([
+    'option1' => 'value1',
+    'option2' => 'key1:value1;key1:value2;',
+], '="', '" '));
+echo PHP_EOL;
