@@ -289,7 +289,7 @@ class TestArrays extends TestCase
      */
     public function testIndex(array $data, $ketGroup, $keyValue, array $expected): void
     {
-        $this->assertEquals($expected, Arrays::group($data, $ketGroup, $keyValue));
+        $this->assertEquals($expected, Arrays::index($data, $ketGroup, $keyValue));
     }
 
     /**
