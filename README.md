@@ -1,3 +1,5 @@
+English | [Русский](https://github.com/cs-eliseev/helpers-arrays/blob/master/README.ru_RU.md)
+
 ARRAYS CSE HELPERS
 =======
 
@@ -617,7 +619,7 @@ Arrays::mergeNotEmptyData([
 */
 ```
 
-**Convert EMPTY array data TO NULL**
+**Replace EMPTY array data TO NULL**
 
 Data:
 ```php
