@@ -919,6 +919,25 @@ Arrays::trim($array, true);
 */
 ```
 
+**Array TO STRING**
+
+Example:
+```php
+Arrays::toString([
+    'option1' => 'value1',
+    'option2' => 'value2',
+]);
+// option1:value1;option2:value2;
+```
+
+Change delimiter:
+```php
+Arrays::toString([
+    'option1' => 'value1',
+    'option2' => 'key1:value1;key1:value2;',
+], '="', '" ');
+// option1="value1" option2="key1:value1;key1:value2;" 
+```
 
 ## Testing & Code Coverage
 
