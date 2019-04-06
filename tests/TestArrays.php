@@ -120,11 +120,11 @@ class TestArrays extends TestCase
                     'test1' => [
                         1,
                         'attr1' => 1,
-                        'attr2' => 2
+                        ['attr2' => 2, 'attr3' => 3]
                     ],
                     'test2' => 2
                 ],
-                '<test1 attr1="1" attr2="2">1</test1><test2>2</test2>'
+                '<test1 attr1="1" attr2="2" attr3="3">1</test1><test2>2</test2>'
             ],
         ];
     }
