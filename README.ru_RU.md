@@ -16,6 +16,7 @@ ARRAYS CSE HELPERS
 
 Репозиторий проекта: https://github.com/cs-eliseev/helpers-arrays
 
+**DEMO**
 ```php
 $array = [
     0 => ' first 1 ',
@@ -970,7 +971,7 @@ phpunit --configuration PATH/TO/PROJECT/phpunit.xml
 
 ## Лицензия
 
-CSE HELPERS ARRAYS это PHP-библиотека с открытым исходным кодом распространяемая по лицензии MIT. Для получения более подробной информации, пожалуйста, ознакомьтесь с [лицензионным файлом](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md).
+ARRAYS CSE HELPERS это PHP-библиотека с открытым исходным кодом распространяемая по лицензии MIT. Для получения более подробной информации, пожалуйста, ознакомьтесь с [лицензионным файлом](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md).
 
 ***
 

@@ -16,6 +16,7 @@ Array helpers provides extra static methods allowing you to deal with arrays mor
 
 Project repository: https://github.com/cs-eliseev/helpers-arrays
 
+**DEMO**
 ```php
 $array = [
     0 => ' first 1 ',
@@ -972,7 +973,7 @@ Even voicing your suggestions for features is great. Anything to help is much ap
 
 ## License
 
-The CSE HELPERS ARRAYS is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md) for more information.
+The ARRAYS CSE HELPERS is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-arrays/blob/master/LICENSE.md) for more information.
 
 ***
 

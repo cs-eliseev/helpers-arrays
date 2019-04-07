@@ -182,8 +182,6 @@ class Arrays
      */
     public static function appendNotEmptyData(array $first, array $second): array
     {
-        $result = null;
-
         switch (true) {
             case empty($first) && empty($second):
                 $result = [];
