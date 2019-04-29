@@ -91,11 +91,11 @@ Arrays::get($array, 0);
 
 ## Introduction
 
-CSE HELPERS is a collection of several libraries with simple functions written in PHP for people.
+[CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.md) is a collection of several libraries with simple functions written in PHP for people.
 
 Despite using PHP as the main programming language for the Internet, its functions are not enough. ARRAY CSE HELPERS provides extra static methods allowing you to deal with arrays more efficiently.
 
-CSE HELPERS was created for the rapid development of web applications.
+[CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.md) was created for the rapid development of web applications.
 
 **CSE Helpers project:**
 * [Array CSE helpers](https://github.com/cs-eliseev/helpers-arrays)
