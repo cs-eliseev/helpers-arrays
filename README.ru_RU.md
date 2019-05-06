@@ -93,7 +93,8 @@ Arrays::get($array, 0);
 
 [CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.ru_RU.md) - это набор из небольших библиотек с простыми функциями написанных на PHP специально для вас.
 
-Несмотря на повсеместное использование PHP в качестве основного языка для WEB разработки, его зачастую недостаточно. ARRAYS CSE HELPERS, предоставляет дополнительные статические методы, позволяющие вам более эффективно работать с массивами.
+Несмотря на повсеместное использование PHP в качестве основного языка для WEB разработки, его зачастую недостаточно. 
+ARRAYS CSE HELPERS, предоставляет дополнительные статические методы, позволяющие вам более эффективно работать с массивами.
 
 [CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.ru_RU.md) создан для быстрой разработки веб-приложений.
 
@@ -146,7 +147,8 @@ git clone https://github.com/cs-eliseev/helpers-arrays.git
 
 ## Использование
 
-Данный класс использует статические методы, которые удобно использовать в любом проекте. Смотрите пример [examples-arrays.php](https://github.com/cs-eliseev/helpers-arrays/blob/master/examples/examples-arrays.php).
+Данный класс использует статические методы, которые удобно использовать в любом проекте. 
+Смотрите пример [examples-arrays.php](https://github.com/cs-eliseev/helpers-arrays/blob/master/examples/examples-arrays.php).
 
 **Получить значение по ключу массива**
 

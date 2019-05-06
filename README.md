@@ -93,7 +93,8 @@ Arrays::get($array, 0);
 
 [CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.md) is a collection of several libraries with simple functions written in PHP for people.
 
-Despite using PHP as the main programming language for the Internet, its functions are not enough. ARRAY CSE HELPERS provides extra static methods allowing you to deal with arrays more efficiently.
+Despite using PHP as the main programming language for the Internet, its functions are not enough. 
+ARRAY CSE HELPERS provides extra static methods allowing you to deal with arrays more efficiently.
 
 [CSE HELPERS](https://github.com/cs-eliseev/helpers/blob/master/README.md) was created for the rapid development of web applications.
 
@@ -148,7 +149,8 @@ git clone https://github.com/cs-eliseev/helpers-arrays.git
 
 ## Usage
 
-The class consists of static methods that are conveniently used in any project. See example [examples-arrays.php](https://github.com/cs-eliseev/helpers-arrays/blob/master/examples/examples-arrays.php).
+The class consists of static methods that are conveniently used in any project. 
+See example [examples-arrays.php](https://github.com/cs-eliseev/helpers-arrays/blob/master/examples/examples-arrays.php).
 
 **GET array data by key**
 
